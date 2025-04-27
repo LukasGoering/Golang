@@ -4,29 +4,30 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"runtime"
 	"time"
 )
 
-func main() {
+func maina() {
 	fmt.Println("My favorite number is", rand.Intn(10))
+	fmt.Println("Hello World!")
 }
 
 func swap(x, y string) (string, string) {
 	return y, x
 }
 
-func main() {
+func swap2() {
 	a, b := swap("hello", "world")
 	fmt.Println(a, b)
 }
 
-func main() {
+func test1() {
 	var c, python, java = true, false, "no!"
-	fmt.Println(i, j, c, python, java)
 
 	var i, j int = 1, 2
 	k := 3
-	fmt.Println(i, j, k)
+	fmt.Println(i, j, k, c, python, java)
 }
 
 const Pi = 3.14
@@ -45,14 +46,14 @@ func needFloat(x float64) float64 {
 	return x * 0.1
 }
 
-func main() {
+func needInt2() {
 	fmt.Println(needInt(Small))
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
 }
 
 // For-loop
-func main() {
+func example_for_loop() {
 	sum := 0
 	for i := 0; i < 10; i++ {
 		sum += i
@@ -61,7 +62,7 @@ func main() {
 }
 
 // "while"-loop
-func main() {
+func example_while_loop() {
 	sum := 1
 	for sum < 1000 { // init-statement is dropped including semicolon
 		sum += sum
@@ -88,37 +89,18 @@ func pow(x, n, lim float64) float64 {
 	return lim
 }
 
-func main() {
-	fmt.Println(
-		pow(3, 2, 10),
-		pow(3, 3, 20),
-	)
-}
-
-
 // Square root function
-package main
-
-import (
-	"fmt"
-)
-
 func Sqrt(x, err float64) float64 {
-	z  := 1.0
-	for (z*z-x) > err {
-		z -= (z*z - x) / (2*z)
+	z := 1.0
+	for (z*z - x) > err {
+		z -= (z*z - x) / (2 * z)
 	}
 	return z
 }
 
-func main() {
-	fmt.Println(Sqrt(5, 0.0000000001))
-}
-
-
 // Swift-Statement
-// A switch statement is a shorter way to write a sequence of if - else statements. 
-func main() {
+// A switch statement is a shorter way to write a sequence of if - else statements.
+func example_switch() {
 	fmt.Print("Go runs on ")
 	switch os := runtime.GOOS; os {
 	case "darwin":
@@ -132,7 +114,7 @@ func main() {
 	}
 }
 
-func main() {
+func example_switch_if_else() {
 	fmt.Println("When's Saturday?")
 	today := time.Now().Weekday()
 	switch time.Saturday {
@@ -148,7 +130,7 @@ func main() {
 }
 
 // switch without condition -> Long if-then-else
-func main() {
+func example_time() {
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
@@ -162,10 +144,10 @@ func main() {
 
 // defer statement
 // A defer statement defers the execution of a function until the surrounding function returns.
-// The deferred call's arguments are evaluated immediately, but the function call is not executed until the surrounding function returns. 
-// Deferred function calls are executed in last-in-first-out order. 
+// The deferred call's arguments are evaluated immediately, but the function call is not executed until the surrounding function returns.
+// Deferred function calls are executed in last-in-first-out order.
 
-func main() {
+func example_defer() {
 	defer fmt.Println("world")
 
 	fmt.Println("hello")
